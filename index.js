@@ -4,7 +4,7 @@ const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "white";
+const boardBackground = "orange";
 const snakeColor = "lightgreen";
 const snakeBorder = "black";
 const foodColor = "red";
@@ -30,16 +30,18 @@ gameStart();
 createFood();
 drawFood();
 
-function gmaeStart() {}
+function gameStart() {}
 function nextTick() {}
 function clearBoard() {}
 function createFood() {
   function randomFood(min, max) {
-    const randNum = Math.round(Math.random() * (max - min) + min);
+    const randNum =
+      Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
     return randNum;
   }
   foodX = randomFood(0, gameWidth - unitSize) * unitSize;
-  foodX = randomFood(0, gameWidth - unitSize) * unitSize;
+  console.log(foodX);
+  foodY = randomFood(0, gameWidth - unitSize) * unitSize;
 }
 function drawFood() {
   ctx.fillStyle = foodColor;
